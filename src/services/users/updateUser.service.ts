@@ -13,7 +13,7 @@ import {
 } from "../../schemas/user.schema";
 
 const updateUserService = async (
-  userId: any,
+  userId: string,
   newData: iUserUpdate
 ): Promise<iUserResponse> => {
   const userRepository = AppDataSource.getRepository(User);

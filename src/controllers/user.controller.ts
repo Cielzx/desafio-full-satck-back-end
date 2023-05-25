@@ -1,17 +1,18 @@
 import { Request, Response } from "express";
 import createUserService from "../services/users/createUser.service";
 import listUserService from "../services/users/listUser.service";
-import { iUser, iUserRequest, iUserUpdate } from "../interfaces/user.interface";
+import {
+  iUser,
+  iUserRequest,
+  iUserResponse,
+  iUserUpdate,
+} from "../interfaces/user.interface";
 import updateUserService from "../services/users/updateUser.service";
 import listMyOwnAccService from "../services/users/listMyOwnAcc.service";
+import deleteUserService from "../services/users/deleteUser.service";
 
 const createuserController = async (req: Request, res: Response) => {
-  if (typeof req.body.password === "number") {
-    req.body.password = req.body.password.toString();
-  }
-  let data: iUser = req.body;
-
-  console.log(typeof data.password);
+  let data: iUserRequest = req.body;
 
   const userRes = await createUserService(data);
 
@@ -36,9 +37,18 @@ const updateUserController = async (req: Request, res: Response) => {
 
 const listOwnAccController = async (req: Request, res: Response) => {
   const userId = res.locals.userId;
+
   const userFound = await listMyOwnAccService(userId);
 
   return res.json(userFound);
+};
+
+const deleteUserController = async (req: Request, res: Response) => {
+  const userId = req.params.id;
+
+  await deleteUserService(userId);
+
+  return res.status(204).send();
 };
 
 export {
@@ -46,4 +56,5 @@ export {
   listUserController,
   updateUserController,
   listOwnAccController,
+  deleteUserController,
 };

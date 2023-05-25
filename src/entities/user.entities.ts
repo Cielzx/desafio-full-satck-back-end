@@ -12,13 +12,13 @@ class User {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
-  @Column()
+  @Column({ length: 50 })
   name: string;
 
   @Column({ unique: true })
   email: string;
 
-  @Column({ unique: true })
+  @Column({ length: 14, unique: true })
   telephone: string;
 
   @Column()

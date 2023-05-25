@@ -18,12 +18,12 @@ const contactSchemaResponse = contactSchemaRequest.omit({
 
 const returnContacts = contactSchemaResponse.array();
 
-const userUpdate = contactSchema.partial();
+const contactUpdate = contactSchema.partial();
 
 export {
   contactSchema,
   contactSchemaRequest,
   contactSchemaResponse,
   returnContacts,
-  userUpdate,
+  contactUpdate,
 };

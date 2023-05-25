@@ -12,13 +12,19 @@ const userSchema = z.object({
 
 const userSchemaRequest = userSchema.omit({
   id: true,
+  contacts: true,
 });
 
 const userSchemaResponse = userSchema.omit({
   password: true,
+  contacts: true,
 });
 
-const returnUsers = userSchemaResponse.array();
+const returnUsers = userSchema
+  .omit({
+    password: true,
+  })
+  .array();
 
 const userUpdate = userSchema.partial();
 
