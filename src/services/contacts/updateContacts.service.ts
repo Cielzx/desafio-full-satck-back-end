@@ -2,16 +2,16 @@ import AppDataSource from "../../data-source";
 import Contact from "../../entities/contacts.entities";
 import { AppError } from "../../errors/AppError";
 import {
+  iContact,
   iContactRequest,
-  iContactResponse,
   iContactUpdate,
 } from "../../interfaces/contacts.interface";
-import { contactSchemaResponse } from "../../schemas/contacts.schema";
+import { contactSchema } from "../../schemas/contacts.schema";
 
 const updateContactService = async (
   userId: string,
   newData: iContactUpdate
-): Promise<iContactResponse> => {
+): Promise<iContact> => {
   const contactsRepository = AppDataSource.getRepository(Contact);
 
   const contact = await contactsRepository.findOneBy({
@@ -29,7 +29,7 @@ const updateContactService = async (
 
   await contactsRepository.save(newContactData);
 
-  return contactSchemaResponse.parse(newContactData);
+  return contactSchema.parse(newContactData);
 };
 
 export default updateContactService;

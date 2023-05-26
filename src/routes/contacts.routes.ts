@@ -1,7 +1,11 @@
 import { Router } from "express";
 import ensureAuthMiddleware from "../middlewares/ensureAuth.middleware";
 import ensureData from "../middlewares/ensureData.middleware";
-import { contactSchemaResponse } from "../schemas/contacts.schema";
+import {
+  contactSchema,
+  contactSchemaResponse,
+  contactUpdate,
+} from "../schemas/contacts.schema";
 import {
   createContactsController,
   deleteContactController,
@@ -103,7 +107,7 @@ contacRoutes.post(
 contacRoutes.patch(
   "/:id",
   ensureAuthMiddleware,
-  ensureData(contactSchemaResponse),
+  ensureData(contactUpdate),
   updateContactController
 );
 

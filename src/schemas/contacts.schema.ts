@@ -12,11 +12,12 @@ const contactSchemaRequest = contactSchema.omit({
   id: true,
 });
 
-const contactSchemaResponse = contactSchemaRequest.omit({
+const contactSchemaResponse = contactSchema.omit({
+  id: true,
   register_date: true,
 });
 
-const returnContacts = contactSchemaResponse.array();
+const returnContacts = contactSchema.array();
 
 const contactUpdate = contactSchema.partial();
 

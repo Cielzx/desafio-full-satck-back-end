@@ -1,6 +1,11 @@
 import { Router } from "express";
 import ensureData from "../middlewares/ensureData.middleware";
-import { userSchemaRequest, userUpdate } from "../schemas/user.schema";
+import {
+  userSchema,
+  userSchemaRequest,
+  userSchemaResponse,
+  userUpdate,
+} from "../schemas/user.schema";
 import {
   createuserController,
   deleteUserController,

@@ -12,6 +12,7 @@ const userSchema = z.object({
 
 const userSchemaRequest = userSchema.omit({
   id: true,
+
   contacts: true,
 });
 

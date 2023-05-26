@@ -1,5 +1,8 @@
 import { Request, Response } from "express";
-import { iContactRequest } from "../interfaces/contacts.interface";
+import {
+  iContactRequest,
+  iContactUpdate,
+} from "../interfaces/contacts.interface";
 import createContactService from "../services/contacts/createContacts.service";
 import listContactsService from "../services/contacts/listContacts.service";
 import updateContactService from "../services/contacts/updateContacts.service";
@@ -18,7 +21,7 @@ const createContactsController = async (req: Request, res: Response) => {
 const updateContactController = async (req: Request, res: Response) => {
   const userId = req.params.id;
 
-  const newData: iContactRequest = req.body;
+  const newData: iContactUpdate = req.body;
 
   const updatedContact = await updateContactService(userId, newData);
 
