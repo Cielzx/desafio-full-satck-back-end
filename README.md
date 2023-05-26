@@ -5,7 +5,7 @@ Welcome to the documentation of the Desafio-full-stack API. This API allows you 
 ## Pre-requisites
 
 - [Node.js](https://nodejs.org/): ^12.0.0
-- [Yarn][https://yarnpkg.com] or any other Node.js package manager
+- [Yarn](https://yarnpkg.com) or any other Node.js package manager
 
 ## Installation
 
