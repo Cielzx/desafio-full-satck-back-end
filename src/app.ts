@@ -6,17 +6,20 @@ import usersRoutes from "./routes/users.routes";
 import HandleErrorApp from "./middlewares/handleErrorApp.middleware";
 import loginRoutes from "./routes/login.routes";
 import contacRoutes from "./routes/contacts.routes";
+import { setupSwagger } from "./swagger";
 
 const app = express();
 app.use(express.json());
 
 app.use(cors());
 
+app.use("/contacts", contacRoutes);
+
 app.use("/login", loginRoutes);
 
 app.use("/users", usersRoutes);
 
-app.use("/contacts", contacRoutes);
+setupSwagger(app);
 
 app.use(HandleErrorApp);
 
