@@ -1,12 +1,7 @@
 import { Request, Response } from "express";
 import createUserService from "../services/users/createUser.service";
 import listUserService from "../services/users/listUser.service";
-import {
-  iUser,
-  iUserRequest,
-  iUserResponse,
-  iUserUpdate,
-} from "../interfaces/user.interface";
+import { iUserRequest, iUserUpdate } from "../interfaces/user.interface";
 import updateUserService from "../services/users/updateUser.service";
 import listMyOwnAccService from "../services/users/listMyOwnAcc.service";
 import deleteUserService from "../services/users/deleteUser.service";
