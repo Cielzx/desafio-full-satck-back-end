@@ -26,7 +26,7 @@ yarn run dev
 ## Documentação
 
 ```
- localhost:3000/api-docs
+ localhost:3001/api-docs
 ```
 
 se você quiser rodar a API em uma port diferente, você pode renomear o `.env.example` para `.env` e mudar as configurações do `DATABASE_URL` para as suas configurações preferidas \
