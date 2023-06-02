@@ -26,7 +26,7 @@ const createTokenService = async (data: iLoginRequest): Promise<string> => {
   }
 
   const token = jwt.sign({ userName: user.name }, process.env.SECRET_KEY!, {
-    expiresIn: "1hr",
+    expiresIn: "5hr",
     subject: user.id,
   });
 

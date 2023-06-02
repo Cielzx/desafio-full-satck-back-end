@@ -3,6 +3,7 @@ import ensureAuthMiddleware from "../middlewares/ensureAuth.middleware";
 import ensureData from "../middlewares/ensureData.middleware";
 import {
   contactSchema,
+  contactSchemaRequest,
   contactSchemaResponse,
   contactUpdate,
 } from "../schemas/contacts.schema";
@@ -67,7 +68,7 @@ const contacRoutes = Router();
 contacRoutes.post(
   "",
   ensureAuthMiddleware,
-  ensureData(contactSchemaResponse),
+  ensureData(contactSchemaRequest),
   createContactsController
 );
 

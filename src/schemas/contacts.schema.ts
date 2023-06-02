@@ -10,10 +10,10 @@ const contactSchema = z.object({
 
 const contactSchemaRequest = contactSchema.omit({
   id: true,
+  register_date: true,
 });
 
 const contactSchemaResponse = contactSchema.omit({
-  id: true,
   register_date: true,
 });
 
